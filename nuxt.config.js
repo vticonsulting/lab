@@ -90,10 +90,7 @@ export default {
           welcome: 'Welcome',
           Messages: 'Messages',
           'Sign out': 'Bye',
-<<<<<<< HEAD
-=======
           'You are offline': 'You are offline',
->>>>>>> feature/LAB-1-add-initial-project-scaffolding
         },
         fr: {
           welcome: 'Bienvenue',
