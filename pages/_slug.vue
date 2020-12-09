@@ -1,7 +1,24 @@
 <template>
-  <div class="prose">
+  <main class="max-w-screen-sm p-8">
+    <h2 class="text-xl">
+      {{ page.lead }}
+    </h2>
+
     <NuxtContent :document="page" />
-  </div>
+
+    <div class="mt-8">
+      <article class="grid">
+        <NuxtLink
+          class="px-4 py-1 border rounded-md shadow hover:bg-primary-600 hover:text-primary-100"
+          :to="link.path"
+          :key="index"
+          v-for="(link, index) in page.links"
+        >
+          {{ link.label }}
+        </NuxtLink>
+      </article>
+    </div>
+  </main>
 </template>
 
 <script>

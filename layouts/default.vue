@@ -1,6 +1,9 @@
 <template>
   <Layout>
     <div class="overflow-hidden">
+      <div class="px-8 py-2 text-gray-900 bg-gray-300" v-if="$nuxt.isOffline">
+        {{ $t('You are offline') }}
+      </div>
       <Nuxt keep-alive :key="$route.params.id" />
     </div>
 
@@ -25,9 +28,9 @@ export default {
       title: '',
       titleTemplate: chunk => {
         if (chunk) {
-          return `${chunk} - UI Exercise`
+          return `${chunk} - Lab`
         }
-        return 'UI Exercise'
+        return 'Lab'
       },
       bodyAttrs: {
         // class: ['bg-gray-100 dark:bg-gray-800 antialiased'],
