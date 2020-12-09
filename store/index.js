@@ -1,18 +1,20 @@
 export const state = () => ({
   isMenuOpen: false,
   site: {
-    navGroups: [
-      {
-        label: 'Examples',
-        path: 'examples',
-        links: [
-          {
-            label: 'CodeIgniter',
-            path: 'codeigniter',
-          },
-        ],
-      },
-    ],
+    nav: {
+      groups: [
+        {
+          label: 'Examples',
+          path: 'examples',
+          links: [
+            {
+              label: 'CodeIgniter',
+              path: 'codeigniter',
+            },
+          ],
+        },
+      ],
+    },
   },
 })
 
