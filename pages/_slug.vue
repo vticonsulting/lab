@@ -12,7 +12,7 @@
           class="px-4 py-1 border rounded-md shadow hover:bg-primary-600 hover:text-primary-100"
           :to="link.path"
           :key="index"
-          v-for="(link, index) in page.links"
+          v-for="(link, index) in $store.state.site.nav.groups"
         >
           {{ link.label }}
         </NuxtLink>
