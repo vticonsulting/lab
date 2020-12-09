@@ -55,7 +55,7 @@ export default {
   ackee: {
     server: 'https://cranky-borg.herokuapp.com',
     domainId: '601bbeb1-8a0a-4d5d-ba1f-a75ce1cefda3',
-    ignoreLocalhost: false,
+    ignoreLocalhost: true,
     detailed: true,
   },
   axios: {
@@ -90,6 +90,7 @@ export default {
           welcome: 'Welcome',
           Messages: 'Messages',
           'Sign out': 'Bye',
+          'You are offline': 'You are offline',
         },
         fr: {
           welcome: 'Bienvenue',

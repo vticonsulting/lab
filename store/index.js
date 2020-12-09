@@ -1,5 +1,19 @@
 export const state = () => ({
   isMenuOpen: false,
+  site: {
+    navGroups: [
+      {
+        label: 'Examples',
+        path: 'examples',
+        links: [
+          {
+            label: 'CodeIgniter',
+            path: 'codeigniter',
+          },
+        ],
+      },
+    ],
+  },
 })
 
 export const mutations = {

@@ -28,18 +28,79 @@
             <span class="ml-2 font-mono" style="font-size: 16px">&lt;Lab /></span>
           </NuxtLink>
 
-          <!-- Navbar Left -->
-          <div class="hidden lg:block lg:ml-6">
-            <div class="flex">
-              <NuxtLink
-                to="messages"
-                class="px-3 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out rounded-md focus:outline-none focus:text-white focus:bg-gray-700"
-                active-class="bg-gray-900"
+          <!-- Navbar_links -->
+          <div class="hidden md:ml-6 md:flex md:items-center md:space-x-2">
+            <!-- <div
+              :key="`group-${i}`"
+              v-for="(group, i) in $store.state.navigationGroups"
+              class="relative inline-block text-left"
+            >
+              <div>
+                <button
+                  @click="open = !open"
+                  type="button"
+                  class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-500 border-b-2 border-transparent whitespace-nowrap hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-primary-500"
+                  id="options-menu"
+                  aria-haspopup="true"
+                  x-bind:aria-expanded="open"
+                  aria-expanded="true"
+                >
+                  {{ group.label }}
+                  <svg
+                    class="w-5 h-5 ml-2 -mr-1"
+                    x-description="Heroicon name: chevron-down"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <div
+                x-show="open"
+                x-description="Dropdown panel, show/hide based on dropdown state."
+                x-transition:enter="transition ease-out duration-100"
+                x-transition:enter-start="transform opacity-0 scale-95"
+                x-transition:enter-end="transform opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-75"
+                x-transition:leave-start="transform opacity-100 scale-100"
+                x-transition:leave-end="transform opacity-0 scale-95"
+                class="absolute left-0 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5"
               >
-                {{ $t('Messages') }}
-                {{ $t('Sign out') }}
-              </NuxtLink>
-            </div>
+                <div
+                  class="py-1"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="options-menu"
+                >
+                  <NuxtLink
+                    :key="`link-${j}`"
+                    v-for="(link, j) in group.links"
+                    :to="localePath(link.path)"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                    role="menuitem"
+                  >
+                    {{ link.label }}
+                  </NuxtLink>
+                </div>
+              </div>
+            </div> -->
+
+            <NuxtLink
+              class="flex items-center space-x-2"
+              :to="link.path"
+              :key="index"
+              v-for="(link, index) in $store.state.site.navGroups"
+            >
+              {{ $t(link.label) }}
+            </NuxtLink>
           </div>
         </div>
 
