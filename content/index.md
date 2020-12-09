@@ -1,16 +1,21 @@
 ---
 title: User Interface Engineering Lab
-subtitle: Platform-agnostic UI components, ...
-description: Fully responsive HTML components, coded by Victor Tolbert
+subtitle: Platform-agnostic UI component patterns, principles and practices...
+links:
+  - http://localhost:3000
+  - http://promise-lab.test/
+  - http://promise-labs.test/
+  - http://designcoder.test/
+copy_inspiration:
+  - Atlassian's no-nonsense guide to agile development
+  - Beautiful UI components, crafted by the creators of Tailwind CSS
+  - Fully responsive HTML components, designed and developed by Adam Wathan and Steve Schoger
 keywords:
-  - Front-End Developer
-  - Front-End Designer
-  - UX Developer
-  - UI Engineer
   - JavaScript
   - CSS
   - HTML
   - Design Systems
+  - Patterns
   - PHP
   - Laravel
   - Ruby

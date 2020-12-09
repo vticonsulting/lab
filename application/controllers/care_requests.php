@@ -11,5 +11,5 @@ class Care_requests extends CI_Controller
         $this->load->view('layouts/nav');
         $this->load->view('care_requests/index', $data);
         $this->load->view('layouts/footer');
-	}
+    }
 }

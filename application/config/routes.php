@@ -45,4 +45,4 @@ $route['default_controller'] = 'pages/show';
 $route['(:any)']             = 'pages/show/$1';
 
 $route['404_override']         = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['translate_uri_dashes'] = false;

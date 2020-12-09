@@ -14,7 +14,7 @@
 
 	</article>
 
-	<?php if($this->session->userdata('user_id') == $post['user_id']): ?>
+	<?php if ($this->session->userdata('user_id') == $post['user_id']): ?>
 		<footer class="flex mt-4 space-x-4">
 			<a href="<?php echo base_url(); ?>posts/edit/<?php echo $post['slug']; ?>" class="px-4 py-1 border rounded shadow btn btn-default">
 				Edit
@@ -29,8 +29,8 @@
 
 	<h3>Comments</h3>
 
-	<?php if($comments) : ?>
-		<?php foreach($comments as $comment) : ?>
+	<?php if ($comments) : ?>
+		<?php foreach ($comments as $comment) : ?>
 			<div class="well">
 				<h5><?php echo $comment['body']; ?> [by <strong><?php echo $comment['name']; ?></strong>]</h5>
 			</div>

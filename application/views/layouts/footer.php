@@ -15,9 +15,9 @@
 
 			<a class="hover:underline" target="docs" href="<?= $this->config->item('site_docs_url')?>">
 				<?= (ENVIRONMENT === 'development')
-					?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>'
-					: NULL
-				?>
+                    ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>'
+                    : null
+                ?>
 			</a>
 		</span>
 	</p>

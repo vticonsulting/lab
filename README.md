@@ -2,7 +2,7 @@
 
 Frontend components and templates for modern web development
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/74e559fa-b68f-46cd-9b24-7f82f1484feb/deploy-status)](https://app.netlify.com/sites/uxlab/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fe126c63-626e-4049-84fe-49b73ec369f2/deploy-status)](https://app.netlify.com/sites/promise-lab/deploys)
 
 ## Build Setup
 

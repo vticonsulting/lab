@@ -5,7 +5,7 @@ class Resources extends CI_Controller
 {
     public function index($offset = 0)
     {
-		$data['title'] = 'FAM Resources';
+        $data['title'] = 'FAM Resources';
 
         // Pagination Config
         $config['base_url'] = base_url() . 'resources/index/';

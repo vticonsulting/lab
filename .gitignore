@@ -52,10 +52,12 @@ Thumbs.db
 
 # misc
 TODO
-scratch/
-vendor/
 queries/
+scratch/
+tmp/
+vendor/
 .env
 .eslintcache
 .nuxt
+.php_cs.cache
 .vscode

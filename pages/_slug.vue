@@ -1,9 +1,6 @@
 <template>
-  <div class="p-8 prose">
-    <h2>{{ page.title }}</h2>
-    <h3>{{ page.subtitle }}</h3>
-
-    <NuxtContent class="mt-4" :document="page" />
+  <div class="prose">
+    <NuxtContent :document="page" />
   </div>
 </template>
 

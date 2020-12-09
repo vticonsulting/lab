@@ -1,7 +1,8 @@
 <?php
 
-if (!defined('BASEPATH'))
+if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
+}
 /**
  * CodeIgniter
  *
@@ -15,24 +16,24 @@ if (!defined('BASEPATH'))
  */
 // --------------------------------------------------------------------
 
-class Template {
-
-    var $CI;
-    var $config;
-    var $template;
-    var $master;
-    var $regions = array(
+class Template
+{
+    public $CI;
+    public $config;
+    public $template;
+    public $master;
+    public $regions = array(
         '_scripts' => array(),
         '_styles' => array(),
         '_meta' => array()
     );
-    var $output;
-    var $js = array();
-    var $css = array();
-    var $meta = array();
-    var $parser = 'parser';
-    var $parser_method = 'parse';
-    var $parse_template = FALSE;
+    public $output;
+    public $js = array();
+    public $css = array();
+    public $meta = array();
+    public $parser = 'parser';
+    public $parser_method = 'parse';
+    public $parse_template = false;
 
     /**
      * Constructor
@@ -42,7 +43,8 @@ class Template {
      *
      * @access    public
      */
-    function __construct() {
+    public function __construct()
+    {
         // Copy an instance of CI so we can use the entire framework.
         $this->CI = & get_instance();
 
@@ -63,7 +65,8 @@ class Template {
      * @param   string   array key to access template settings
      * @return  void
      */
-    function set_template($group) {
+    public function set_template($group)
+    {
         if (isset($this->config[$group])) {
             $this->template = $this->config[$group];
         } else {
@@ -81,7 +84,8 @@ class Template {
      * @param   string   filename of new master template file
      * @return  void
      */
-    function set_master_template($filename) {
+    public function set_master_template($filename)
+    {
         if (file_exists(APPPATH . 'views/' . $filename) or file_exists(APPPATH . 'views/' . $filename . '.php')) {
             $this->master = $filename;
         } else {
@@ -99,10 +103,11 @@ class Template {
      * @param   array properly formed
      * @return  void
      */
-    function add_template($group, $template, $activate = FALSE) {
+    public function add_template($group, $template, $activate = false)
+    {
         if (!isset($this->config[$group])) {
             $this->config[$group] = $template;
-            if ($activate === TRUE) {
+            if ($activate === true) {
                 $this->initialize($template);
             }
         } else {
@@ -119,7 +124,8 @@ class Template {
      * @param   array   configuration array
      * @return  void
      */
-    function initialize($props) {
+    public function initialize($props)
+    {
         // Set master template
         if (isset($props['template'])
                 && (file_exists(APPPATH . 'views/' . $props['template']) or file_exists(APPPATH . 'views/' . $props['template'] . '.php'))) {
@@ -143,7 +149,7 @@ class Template {
         }
 
         // Set master template parser instructions
-        $this->parse_template = isset($props['parse_template']) ? $props['parse_template'] : FALSE;
+        $this->parse_template = isset($props['parse_template']) ? $props['parse_template'] : false;
     }
 
     // --------------------------------------------------------------------
@@ -155,7 +161,8 @@ class Template {
      * @param   array   properly formed regions array
      * @return  void
      */
-    function set_regions($regions) {
+    public function set_regions($regions)
+    {
         if (count($regions)) {
             $this->regions = array(
                 '_scripts' => array(),
@@ -184,7 +191,8 @@ class Template {
      * @param   array Optional array with region defaults
      * @return  void
      */
-    function add_region($name, $props = array()) {
+    public function add_region($name, $props = array())
+    {
         if (!is_array($props)) {
             $props = array();
         }
@@ -205,7 +213,8 @@ class Template {
      * @param   string   Name to identify the region
      * @return  void
      */
-    function empty_region($name) {
+    public function empty_region($name)
+    {
         if (isset($this->regions[$name]['content'])) {
             $this->regions[$name]['content'] = array();
         } else {
@@ -222,7 +231,8 @@ class Template {
      * @param   string   name of parser class to load and use for parsing methods
      * @return  void
      */
-    function set_parser($parser, $method = NULL) {
+    public function set_parser($parser, $method = null)
+    {
         $this->parser = $parser;
         $this->CI->load->library($parser);
 
@@ -240,7 +250,8 @@ class Template {
      * @param   string   name of parser class member function to call when parsing
      * @return  void
      */
-    function set_parser_method($method) {
+    public function set_parser_method($method)
+    {
         $this->parser_method = $method;
     }
 
@@ -255,9 +266,10 @@ class Template {
      * @param    boolean    FALSE to append to region, TRUE to overwrite region
      * @return    void
      */
-    function write($region, $content, $overwrite = FALSE) {
+    public function write($region, $content, $overwrite = false)
+    {
         if (isset($this->regions[$region])) {
-            if ($overwrite === TRUE) { // Should we append the content or overwrite it
+            if ($overwrite === true) { // Should we append the content or overwrite it
                 $this->regions[$region]['content'] = array($content);
             } else {
                 $this->regions[$region]['content'][] = $content;
@@ -282,7 +294,8 @@ class Template {
      * @param    boolean    FALSE to append to region, TRUE to overwrite region
      * @return    void
      */
-    function write_view($region, $view, $data = NULL, $overwrite = FALSE) {
+    public function write_view($region, $view, $data = null, $overwrite = false)
+    {
         $args = func_get_args();
 
         // Get rid of non-views
@@ -299,7 +312,7 @@ class Template {
             }
         }
 
-        $content = $this->CI->load->view($view, $data, TRUE);
+        $content = $this->CI->load->view($view, $data, true);
         $this->write($region, $content, $overwrite);
     }
 
@@ -315,7 +328,8 @@ class Template {
      * @param   boolean  FALSE to append to region, TRUE to overwrite region
      * @return  void
      */
-    function parse_view($region, $view, $data = NULL, $overwrite = FALSE) {
+    public function parse_view($region, $view, $data = null, $overwrite = false)
+    {
         $this->CI->load->library('parser');
 
         $args = func_get_args();
@@ -334,7 +348,7 @@ class Template {
             }
         }
 
-        $content = $this->CI->{$this->parser}->{$this->parser_method}($view, $data, TRUE);
+        $content = $this->CI->{$this->parser}->{$this->parser_method}($view, $data, true);
         $this->write($region, $content, $overwrite);
     }
 
@@ -351,9 +365,10 @@ class Template {
      * @param   boolean  TRUE to use 'defer' attribute, FALSE to exclude it
      * @return  TRUE on success, FALSE otherwise
      */
-    function add_js($script, $type = 'import', $defer = FALSE) {
-        $success = TRUE;
-        $js = NULL;
+    public function add_js($script, $type = 'import', $defer = false)
+    {
+        $success = true;
+        $js = null;
 
         $this->CI->load->helper('url');
 
@@ -378,12 +393,12 @@ class Template {
                 break;
 
             default:
-                $success = FALSE;
+                $success = false;
                 break;
         }
 
         // Add to js array if it doesn't already exist
-        if ($js != NULL && !in_array($js, $this->js)) {
+        if ($js != null && !in_array($js, $this->js)) {
             $this->js[] = $js;
             $this->write('_scripts', $js);
         }
@@ -404,9 +419,10 @@ class Template {
      * @param   string  media attribute to use with 'link' type only, FALSE for none
      * @return  TRUE on success, FALSE otherwise
      */
-    function add_css($style, $type = 'link', $media = FALSE) {
-        $success = TRUE;
-        $css = NULL;
+    public function add_css($style, $type = 'link', $media = false)
+    {
+        $success = true;
+        $css = null;
 
         $this->CI->load->helper('url');
         $filepath = base_url() . $style;
@@ -432,12 +448,12 @@ class Template {
                 break;
 
             default:
-                $success = FALSE;
+                $success = false;
                 break;
         }
 
         // Add to js array if it doesn't already exist
-        if ($css != NULL && !in_array($css, $this->css)) {
+        if ($css != null && !in_array($css, $this->css)) {
             $this->css[] = $css;
             $this->write('_styles', $css);
         }
@@ -454,14 +470,15 @@ class Template {
      * @param string $value meta content
      * @return bool
      */
-    function add_meta($key, $val) {
-        $success = FALSE;
+    public function add_meta($key, $val)
+    {
+        $success = false;
         $meta = '<meta name="' . $key . '" content="' . $val . '" />';
 
         if (!in_array($meta, $this->meta)) {
             $this->meta[] = $meta;
             $this->write('_meta', $meta);
-            $success = TRUE;
+            $success = true;
         }
 
         return $success;
@@ -475,7 +492,8 @@ class Template {
      * @param    boolean    FALSE to output the rendered template, TRUE to return as a string. Always TRUE when $region is supplied
      * @return    void or string (result of template build)
      */
-    function render($region = NULL, $buffer = FALSE, $parse = FALSE) {
+    public function render($region = null, $buffer = false, $parse = false)
+    {
         // Just render $region if supplied
         if ($region) { // Display a specific regions contents
             if (isset($this->regions[$region])) {
@@ -491,12 +509,12 @@ class Template {
                 $this->output[$name] = $this->_build_content($region);
             }
 
-            if ($this->parse_template === TRUE or $parse === TRUE) {
+            if ($this->parse_template === true or $parse === true) {
                 // Use provided parser class and method to render the template
-                $output = $this->CI->{$this->parser}->{$this->parser_method}($this->master, $this->output, TRUE);
+                $output = $this->CI->{$this->parser}->{$this->parser_method}($this->master, $this->output, true);
 
                 // Parsers never handle output, but we need to mimick it in this case
-                if ($buffer === FALSE) {
+                if ($buffer === false) {
                     $this->CI->output->set_output($output);
                 }
             } else {
@@ -517,8 +535,9 @@ class Template {
      *
      * Use render() to compile and display your template and regions
      */
-    function load($region = NULL, $buffer = FALSE) {
-        $region = NULL;
+    public function load($region = null, $buffer = false)
+    {
+        $region = null;
         $this->render($region, $buffer);
     }
 
@@ -533,12 +552,13 @@ class Template {
      * @param    array    Multidimensional array of HTML elements to apply to $wrapper
      * @return    string    Output of region contents
      */
-    function _build_content($region, $wrapper = NULL, $attributes = NULL) {
-        $output = NULL;
+    public function _build_content($region, $wrapper = null, $attributes = null)
+    {
+        $output = null;
 
         // Can't build an empty region. Exit stage left
         if (!isset($region['content']) or !count($region['content'])) {
-            return FALSE;
+            return false;
         }
 
         // Possibly overwrite wrapper and attributes
@@ -578,7 +598,6 @@ class Template {
 
         return $output;
     }
-
 }
 
 // END Template Class

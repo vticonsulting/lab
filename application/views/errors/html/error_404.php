@@ -465,13 +465,13 @@
 		</div>
 		<div class="relative w-full pb-full md:flex md:pb-0 md:min-h-screen md:w-1/2">
 			<?php
-				$imgs = array(
-					'/assets/images/hero_random/error/hero_error_1.jpg',
-					'/assets/images/hero_random/error/hero_error_2.jpg',
-					'/assets/images/hero_random/error/hero_error_3.jpg',
-					'/assets/images/hero_random/error/hero_error_4.jpg',
-				)
-			?>
+                $imgs = array(
+                    '/assets/images/hero_random/error/hero_error_1.jpg',
+                    '/assets/images/hero_random/error/hero_error_2.jpg',
+                    '/assets/images/hero_random/error/hero_error_3.jpg',
+                    '/assets/images/hero_random/error/hero_error_4.jpg',
+                )
+            ?>
 			<div
 				style="background-image: url(<?= $imgs[array_rand($imgs)] ?>)"
 				class="absolute bg-no-repeat bg-cover pin md:bg-left lg:bg-center"
