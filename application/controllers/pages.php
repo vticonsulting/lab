@@ -9,6 +9,15 @@ class Pages extends CI_Controller
             show_404();
         }
 
+        // $raw = '22. 11. 1968';
+        // $start = DateTime::createFromFormat('d. m. Y', $raw);
+        // d($start->format('Y-m-d'));
+
+        // $end = clone $start;
+        // $end->add(new DateInterval('P1M6D'));
+        // $diff = $end->diff($start);
+        // d($diff->format('%m month, %d days (total: %a days)'));
+
         $data['title'] = ucfirst($page);
         $data['keywords'] = $this->config->item('site_keywords');
 

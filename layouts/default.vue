@@ -8,11 +8,11 @@
     </div>
 
     <template #header>
-      <Navbar />
+      <SiteNavbar />
     </template>
 
     <template #footer>
-      <Footer />
+      <DebugFooter />
     </template>
 
     <PortalTarget name="modals" />

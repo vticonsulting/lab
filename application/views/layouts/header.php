@@ -44,15 +44,18 @@
 	<link href="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css" rel="stylesheet">
 
 	<!-- Tagify -->
-	<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+	<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css">
 
 	<!-- Litepicker -->
-	<link src="https://cdn.jsdelivr.net/npm/litepicker/dist/css/style.css"/>
-
+	<link src="https://cdn.jsdelivr.net/npm/litepicker/dist/css/style.css">
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 	<!-- FIX Only load this script on pages requiring the WYSIWYG edtior -->
 	<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+
+	<!-- Trix -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js"></script>
 
 	<!-- DataTables -->
 	<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">

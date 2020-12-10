@@ -32,6 +32,15 @@
 				<h3 class="font-bold">Upcoming Items</h3>
 
 				<p>No relevant upcoming items in the next 30 days</p>
+
+				<form>
+					<input id="x" value="Editor content goes here" class="trix-content" type="hidden" name="content">
+					<trix-editor input="x"></trix-editor>
+
+					<div class="trix-content">Stored content here</div>
+
+				</form>
+
 			</div>
 		</div>
 

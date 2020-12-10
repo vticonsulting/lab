@@ -1,24 +1,11 @@
 <template>
-  <main class="max-w-screen-sm p-8">
-    <h2 class="text-xl">
-      {{ page.lead }}
-    </h2>
+  <div>
+    <PageHeading :page="page" class="p-8 bg-gray-800" />
 
-    <NuxtContent :document="page" />
-
-    <div class="mt-8">
-      <article class="grid">
-        <NuxtLink
-          class="px-4 py-1 border rounded-md shadow hover:bg-primary-600 hover:text-primary-100"
-          :to="link.path"
-          :key="index"
-          v-for="(link, index) in $store.state.site.nav.groups"
-        >
-          {{ link.label }}
-        </NuxtLink>
-      </article>
-    </div>
-  </main>
+    <section class="p-8 max-w-prose">
+      <NuxtContent :document="page" />
+    </section>
+  </div>
 </template>
 
 <script>

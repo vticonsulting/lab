@@ -1,43 +1,26 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  purge: [],
-  darkMode: 'class',
   theme: {
+    dark: 'class',
     extend: {
-      colors: {
-        primary: {
-          50: '#fafcf5',
-          100: '#f4f8ec',
-          200: '#e5eecf',
-          300: '#d5e3b1',
-          400: '#b5cf77',
-          500: '#95ba3d',
-          600: '#86a737',
-          700: '#708c2e',
-          800: '#597025',
-          900: '#495b1e',
-        },
-      },
       fontSize: {
-        '2xs': '0.6rem',
+        '2xs': '.625rem', // 10px
       },
-      spacing: {
-        sm: '2px',
-        7: '1.75rem',
-      },
-      inset: {
-        16: '16px',
-        '-16': '-16px',
-        64: '64px',
-      },
-      rotate: {
-        '-1': '-1deg',
-        '-2': '-2deg',
-        '-3': '-3deg',
-        1: '1deg',
-        2: '2deg',
-        3: '3deg',
+      colors: {
+        // primary: {
+        //   50: '#fafcf5',
+        //   100: '#f4f8ec',
+        //   200: '#e5eecf',
+        //   300: '#d5e3b1',
+        //   400: '#b5cf77',
+        //   500: '#95ba3d',
+        //   600: '#86a737',
+        //   700: '#708c2e',
+        //   800: '#597025',
+        //   900: '#495b1e',
+        // },
+        primary: colors.coolGray,
       },
       animation: {
         wiggle: 'wiggle 1s infinite',
@@ -68,8 +51,10 @@ module.exports = {
     },
   },
   variants: {
-    backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus', 'group-hover'],
-    borderColor: ['responsive', 'hover', 'focus'],
+    margin: ['responsive', 'last'],
+    textColor: ['responsive', 'hover', 'focus', 'dark'],
+    backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus', 'group-hover', 'dark'],
+    borderColor: ['responsive', 'hover', 'focus', 'dark'],
     borderWidth: ['responsive', 'first', 'last', 'hover', 'focus'],
     opacity: ['responsive', 'hover', 'focus', 'disabled'],
     outline: ['focus'],
@@ -82,4 +67,14 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
   ],
+  purge: {
+    enabled: process.env.NODE_ENV === 'production',
+    content: [
+      'components/**/*.vue',
+      'layouts/**/*.vue',
+      'pages/**/*.vue',
+      'plugins/**/*.js',
+      'nuxt.config.js',
+    ],
+  },
 }

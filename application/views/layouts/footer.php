@@ -129,6 +129,9 @@
 	}
 	Vue.createApp(Counter).mount('#counter')
 
+	var element = document.querySelector("trix-editor")
+	element.editor  // is a Trix.Editor instance
+
 	// window.VueUse
 </script>
 </body>
